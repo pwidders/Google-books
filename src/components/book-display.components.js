@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ()
 
 class BookDisplay extends Component {
     constructor(props) {
@@ -11,28 +12,34 @@ class BookDisplay extends Component {
 
         this.state = {
             Book_title: '',
+            items: [],
+            isLoaded: false,
         }
     }
 
-    // Form handling functions
-    onChangeBookTitle(e) {
-        this.setState({
-            Book_title: e.target.value
-        })
-    }
+        // Form handling functions
+        onChangeBookTitle(e) {
+            this.setState({
+                Book_title: e.target.value
+            })
+        }
 
-    onSubmit(e) {
-        e.preventDefault();
-
-        const searchTitle = this.state.Book_title;
-        console.log(searchTitle);
-        // Google book API call here
-        this.setState({
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
-        })
+        onSubmit(e) {
+            e.preventDefault();
+            fetch('') 
+            const searchTitle = this.state.Book_title;
+            console.log(searchTitle);
+            // Google book API call here
+            componentDidMount() {
+                fetch('')
+            }
+                this.setState({
+                    todo_description: '',
+                    todo_responsible: '',
+                    todo_priority: '',
+                    todo_completed: false
+                })
+        }
     }
 
     render () {
@@ -53,7 +60,7 @@ class BookDisplay extends Component {
                     <div className="form-group">
                         <input 
                             type="submit"
-                            value="Create Todo"
+                            value="Search book"
                             className="btn btn-primary"
                         />
                     </div>
