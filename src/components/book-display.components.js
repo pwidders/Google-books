@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import ()
+
 
 class BookDisplay extends Component {
     constructor(props) {
@@ -16,30 +16,33 @@ class BookDisplay extends Component {
             isLoaded: false,
         }
     }
+  
+    // Form handling function
+    onChangeBookTitle(e) {
+        this.setState({
+            Book_title: e.target.value
+        })
+    }
 
-        // Form handling functions
-        onChangeBookTitle(e) {
-            this.setState({
-                Book_title: e.target.value
-            })
-        }
-
-        onSubmit(e) {
-            e.preventDefault();
-            fetch('') 
+    onSubmit(e) {
+        e.preventDefault();
+        const myAPIKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
             const searchTitle = this.state.Book_title;
             console.log(searchTitle);
-            // Google book API call here
-            componentDidMount() {
-                fetch('')
-            }
-                this.setState({
-                    todo_description: '',
-                    todo_responsible: '',
-                    todo_priority: '',
-                    todo_completed: false
-                })
-        }
+    
+            this.setState({
+                todo_description: '',
+                todo_responsible: '',
+                todo_priority: '',
+                todo_completed: false
+            })
+    }    
+
+    // run component did mount
+    componentDidMount() {
+    // call onsubmit handler function
+    // call fetch method
+    // 
     }
 
     render () {
