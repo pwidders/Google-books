@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-
 class BookDisplay extends Component {
     constructor(props) {
         super(props);
@@ -13,8 +12,9 @@ class BookDisplay extends Component {
         this.state = {
             Book_title: '',
             items: [],
-            isLoaded: false,
-        }
+            isLoading: false,
+            error: null
+        };
     }
   
     // Form handling function
@@ -26,10 +26,23 @@ class BookDisplay extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const myAPIKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
             const searchTitle = this.state.Book_title;
-            console.log(searchTitle);
-    
+            const API = "https://www.googleapis.com/books/v1/volumes?q=";
+            const myAPIKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
+            this.setState({ isLoading: true });
+
+            this.setState({ isLoading: true });
+            axios.get(API + searchTitle + "&key=" + myAPIKey)
+            .then(result => this.setState({
+                hits: result.data.hits,
+                isLoading: false
+            }))
+            .catch(error => this.setState({
+                error,
+                isLoading: false
+            }));
+
+        
             this.setState({
                 todo_description: '',
                 todo_responsible: '',
@@ -38,12 +51,7 @@ class BookDisplay extends Component {
             })
     }    
 
-    // run component did mount
-    componentDidMount() {
-    // call onsubmit handler function
-    // call fetch method
-    // 
-    }
+
 
     render () {
         return (
