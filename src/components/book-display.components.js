@@ -11,6 +11,10 @@ class BookDisplay extends Component {
 
         this.state = {
             Book_title: '',
+            Book_author: '',
+            Book_description: '',
+            Book_image: '',
+            Book_link: '',
             items: [],
             error: null
         };
@@ -44,7 +48,6 @@ class BookDisplay extends Component {
             .catch(error => this.setState({
                 error
             }));
-
     }    
 
     render () {
@@ -84,9 +87,9 @@ class BookDisplay extends Component {
                                         Description: {item.volumeInfo.description}
                                         </p>
                                         <a href={item.volumeInfo.previewLink} className="btn btn-primary">Check it out!</a>
-                                        {/* <button onClick={}>
-                                            Add book
-                                        </button> */}
+                                        {<button onClick={this.addBook}>
+                                            Add book to list
+                                        </button>}
                                     </div>
                                 </div>
                         )
