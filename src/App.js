@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import BookDisplay from './components/book-display.components';
-import SavedBooks from './components/saved-books.components';
+// import SavedBooks from './components/saved-books.components';
 
 class App extends Component {
   render() {
@@ -25,7 +25,7 @@ class App extends Component {
           </nav>
 
           <Route path="/" exact component={BookDisplay} />
-          <Route path="/saved" component={SavedBooks} />
+          {/* <Route path="/saved" component={SavedBooks} /> */}
         </div>
       </Router>
     );
