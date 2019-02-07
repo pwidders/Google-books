@@ -27,13 +27,13 @@ connection.once('open', function() {
 
 // Send HTTP post request (add)
 bookRoutes.route('/add').post(function(req, res) {
-    let book= new Todo(req.body);
+    let book= new Book(req.body);
     todo.save()
         .then(todo => {
-            res.status(200).json({'todo': 'todo added successfully'});
+            res.status(200).json({'book': 'book added successfully'});
         })
         .catch(err => {
-            res.status(400).send('adding new todo failed');
+            res.status(400).send('adding new book failed');
         });
 });
 
